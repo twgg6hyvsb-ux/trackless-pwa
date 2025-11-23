@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trackless — Mock Tracking Generator (TEST ONLY)</title>
+  <meta name="description" content="Gen Z friendly mock tracking number generator — TEST ONLY, for demos & testing." />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="theme-color" content="#7c3aed"/>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="logo">📦 Trackless</div>
+      <button id="installBtn" class="pill hidden">Install</button>
+    </header>
+
+    <section class="hero">
+      <h1>Mock Tracking Generator</h1>
+      <p class="tagline">Generate vibe-approved, clearly labeled TEST tracking numbers for demos, UI tests, and mockups ✨</p>
+      <div class="ethics">⚠️ These are TEST IDs — they are not real and are watermarked with <strong>TEST-</strong>. Do not attempt to use them for real shipping.</div>
+    </section>
+
+    <section class="controls card">
+      <label>
+        Carrier vibe
+        <select id="carrierSelect">
+          <option value="usps">USPS (mock)</option>
+          <option value="ups">UPS (mock)</option>
+          <option value="fedex">FedEx (mock)</option>
+          <option value="dhl">DHL (mock)</option>
+          <option value="generic">Generic (mock)</option>
+        </select>
+      </label>
+
+      <label>
+        How many to make
+        <input id="count" type="number" min="1" max="50" value="3" />
+      </label>
+
+      <div class="row">
+        <button id="generateBtn" class="btn">Make mock IDs ✨</button>
+        <button id="exportBtn" class="btn ghost">Export CSV</button>
+      </div>
+    </section>
+
+    <section class="results card">
+      <h2>Mock tracking numbers</h2>
+      <ul id="resultsList" class="list"></ul>
+      <div id="emptyHint" class="muted">No mock IDs yet — generate some above.</div>
+    </section>
+
+    <section class="timeline card">
+      <h2>Mock tracking timeline preview</h2>
+      <div id="timelinePreview" class="timeline-list muted">Generate a mock ID and click "View timeline" to see a playful mock timeline.</div>
+    </section>
+
+    <footer class="footer">
+      <small>Made with 🤍 for testing — Trackless (TEST ONLY).</small>
+      <small><a href="/README.md" target="_blank">Read usage & ethics</a></small>
+    </footer>
+  </main>
+
+  <template id="resultItemTpl">
+    <li class="result">
+      <div class="left">
+        <div class="idline"><span class="id"></span><span class="badge">TEST</span></div>
+        <div class="meta muted">carrier: <span class="carrier"></span></div>
+      </div>
+      <div class="right">
+        <button class="btn tiny copyBtn">Copy</button>
+        <button class="btn tiny viewBtn">View timeline</button>
+        <button class="btn tiny shareBtn">Share</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
